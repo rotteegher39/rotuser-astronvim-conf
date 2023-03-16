@@ -24,18 +24,6 @@ return {
     underline = true,
   },
   lsp = {
-    settings = {
-      ["rust-analyzer"] = {
-        server_registration = function(server, opts)
-          if server == "rust_analyzer" then
-            require("rust-tools").setup { server = opts }
-            return
-          end
-          require("lspconfig").angularls.setup {}
-
-          require("lspconfig")[server].setup(opts)
-        end,
-      },
     },
     -- customize lsp formatting options
     formatting = {
@@ -61,7 +49,6 @@ return {
     servers = {
       -- "pyright"
     },
-  },
   -- Configure require("lazy").setup() options
   lazy = {
     defaults = { lazy = true },
@@ -76,6 +63,7 @@ return {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
+    require("rust-tools").setup()
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
