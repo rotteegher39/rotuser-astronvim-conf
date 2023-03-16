@@ -24,31 +24,20 @@ return {
     underline = true,
   },
   lsp = {
+    setup_handlers = {
+      -- add custom handler
+      rust_analyzer = function(_, opts) require("rust-tools").setup { server = opts } end
     },
-    -- customize lsp formatting options
-    formatting = {
-      -- control auto formatting on save
-      format_on_save = {
-        enabled = false,    -- enable or disable format on save globally
-        allow_filetypes = { -- enable format on save for specified filetypes only
-          "lua",
-        },
-        ignore_filetypes = { -- disable format on save for specified filetypes
-          -- "python",
-        },
+  },
+  plugins = {
+    "simrat39/rust-tools.nvim", -- add lsp plugin
+    {
+      "williamboman/mason-lspconfig.nvim",
+      opts = {
+        ensure_installed = { "rust_analyzer" },
       },
-      disabled = { -- disable formatting capabilities for the listed language servers
-        -- "sumneko_lua",
-      },
-      timeout_ms = 1000, -- default format timeout
-      -- filter = function(client) -- fully override the default formatting function
-      --   return true
-      -- end
     },
-    -- enable servers that you already have installed without mason
-    servers = {
-      -- "pyright"
-    },
+  },
   -- Configure require("lazy").setup() options
   lazy = {
     defaults = { lazy = true },
@@ -63,7 +52,6 @@ return {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
-    require("rust-tools").setup()
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
