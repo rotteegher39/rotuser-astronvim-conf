@@ -28,6 +28,16 @@ return {
       -- add custom handler
       rust_analyzer = function(_, opts) require("rust-tools").setup { server = opts } end
     },
+    formatting = {
+      format_on_save = {
+        enabled = true, -- enable format on save
+        ignore_filetypes = { -- disable format on save for specified filetypes
+          "lua",
+          "markdown",
+          "python",
+        }
+      },
+    },
   },
   plugins = {
     "simrat39/rust-tools.nvim", -- add lsp plugin
