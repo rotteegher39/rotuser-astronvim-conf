@@ -1,5 +1,5 @@
 return { -- this table overrides highlights in all themes
-  -- Normal = { fg = "#fff000" },
+  Normal = { ctermbg=NONE },
   Comment = { fg = "#af9dbe" },
   Type = {fg = "#ccccff", bg = "#313131"},
   Function = {fg = "#ffffcc"},

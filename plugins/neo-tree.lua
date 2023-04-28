@@ -69,7 +69,7 @@ return {
       close_if_last_window = true,
       source_selector = {
             winbar = true, -- toggle to show selector on winbar
-            statusline = true, -- toggle to show selector on statusline
+            statusline = false, -- toggle to show selector on statusline
             show_scrolled_off_parent_node = true,                    -- boolean
             sources = {                                               -- table
                 {
@@ -78,7 +78,7 @@ return {
                 },
                 {
                     source = "buffers",                               -- string
-                    display_name = " Buffers"                         -- string | nil
+                    display_name = " Buff"                         -- string | nil
                 },
                 {
                     source = "git_status",                            -- string
@@ -99,7 +99,6 @@ return {
             highlight_background = "NeoTreeTabInactive",              -- string
             highlight_separator = "NeoTreeTabSeparatorInactive",      -- string
             highlight_separator_active = "NeoTreeTabSeparatorActive", -- string
-
       },
       default_component_configs = {
         indent = { padding = 0, indent_size = 1 },
@@ -125,7 +124,8 @@ return {
         },
       },
       window = {
-        width = 40,
+        position = "right",
+        width = 30,
         mappings = {
           ["<space>"] = false, -- disable space until we figure out which-key disabling
           ["<S-l>"] = "next_source",

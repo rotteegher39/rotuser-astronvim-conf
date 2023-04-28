@@ -30,7 +30,7 @@ return {
       function() require("astronvim.utils").toggle_term_cmd "bacon check-all" end,
       desc = "Term Bacon",
     },
-    ["<C-b>"] = { "<cmd>TermExec cmd='cargo run'<cr>", desc = "Cargo Run" },
+    ["<C-b>"] = { "<cmd>TermExec cmd='make run'<cr>", desc = "Cargo Run" },
     ["<leader>tg"] = { function() require("astronvim.utils").toggle_term_cmd "gdu" end, desc = "gdu" },
     ["<leader>tn"] = { function() require("astronvim.utils").toggle_term_cmd "ncdu" end, desc = "ncdu" },
     ["<leader>tT"] = { function() require("astronvim.utils").toggle_term_cmd "btm" end, desc = "btm" },
