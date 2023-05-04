@@ -69,10 +69,6 @@ return {
     end,
   },
   { "khaveesh/vim-fish-syntax" },
-  { "simrat39/rust-tools.nvim", config = function()
-      require("rust-tools").setup()
-    end,
-  },
   { "ron-rs/ron.vim" },
   {
     "Pocco81/auto-save.nvim",

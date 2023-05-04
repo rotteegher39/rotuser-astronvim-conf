@@ -3,12 +3,36 @@
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
+local ui = require "astronvim.utils.ui"
+local sections = {
+  y = { desc = "y  UI" },
+}
+
 return {
   -- first key is the mode
   n = {
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
     -- Resize windows
+    ["<leader>u"] = false,
+    ["<leader>y"] = sections.y,
+    ["<leader>ud"] = { ui.toggle_diagnostics, desc = "Toggle diagnostics" },
+    ["<leader>ug"] = { ui.toggle_signcolumn, desc = "Toggle signcolumn" },
+    ["<leader>ui"] = { ui.set_indent, desc = "Change indent setting" },
+    ["<leader>ul"] = { ui.toggle_statusline, desc = "Toggle statusline" },
+    ["<leader>uL"] = { ui.toggle_codelens, desc = "Toggle CodeLens" },
+    ["<leader>un"] = { ui.change_number, desc = "Change line numbering" },
+    ["<leader>uN"] = { ui.toggle_ui_notifications, desc = "Toggle UI notifications" },
+    ["<leader>up"] = { ui.toggle_paste, desc = "Toggle paste mode" },
+    ["<leader>us"] = { ui.toggle_spell, desc = "Toggle spellcheck" },
+    ["<leader>uS"] = { ui.toggle_conceal, desc = "Toggle conceal" },
+    ["<leader>ut"] = { ui.toggle_tabline, desc = "Toggle tabline" },
+    ["<leader>uu"] = { ui.toggle_url_match, desc = "Toggle URL highlight" },
+    ["<leader>uw"] = { ui.toggle_wrap, desc = "Toggle wrap" },
+    ["<leader>uy"] = { ui.toggle_syntax, desc = "Toggle syntax highlight" },
+    ["<leader>uh"] = { ui.toggle_foldcolumn, desc = "Toggle foldcolumn" },
+
+
     ["<A-h>"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" },
     ["<A-j>"] = { function() require("smart-splits").resize_down() end, desc = "Resize split down" },
     ["<A-k>"] = { function() require("smart-splits").resize_up() end, desc = "Resize split up" },

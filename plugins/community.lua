@@ -4,9 +4,12 @@ return {
   { import = "astrocommunity.pack.rust", enabled = true },
   { "rust-tools.nvim", opts = {
       tools = { -- rust-tools options
+      reload_workspace_from_cargo_toml = true,
       inlay_hints = {
-        only_current_line = true,
-        highlight = "Type",
+        auto = true,
+        only_current_line = false,
+        show_parameter_hints = true,
+        highlight = "Cursor",
       },
       hover_actions = {
         border = {
