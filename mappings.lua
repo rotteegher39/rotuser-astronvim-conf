@@ -37,6 +37,11 @@ return {
     ["<A-j>"] = { function() require("smart-splits").resize_down() end, desc = "Resize split down" },
     ["<A-k>"] = { function() require("smart-splits").resize_up() end, desc = "Resize split up" },
     ["<A-l>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" },
+    ["<C-h>"] = { "<C-w>h", desc = "Move to left split"  },
+    ["<C-j>"] = { "<C-w>j", desc = "Move to below split" },
+    ["<C-k>"] = { "<C-w>k", desc = "Move to above split" },
+    ["<C-l>"] = { "<C-w>l", desc = "Move to right split" },
+
     ["<S-l>"] = {
       function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
       desc = "Next buffer",
@@ -58,15 +63,15 @@ return {
     ["<leader>tg"] = { function() require("astronvim.utils").toggle_term_cmd "gdu" end, desc = "gdu" },
     ["<leader>tn"] = { function() require("astronvim.utils").toggle_term_cmd "ncdu" end, desc = "ncdu" },
     ["<leader>tT"] = { function() require("astronvim.utils").toggle_term_cmd "btm" end, desc = "btm" },
-    ["<leader>tt"] = { function() require("astronvim.utils").toggle_term_cmd "bpytop" end, desc = "bpytop" },
+    ["<leader>tf"] = { function() require("astronvim.utils").toggle_term_cmd "zellij" end, desc = "bpytop" },
     ["<leader>tp"] = { function() require("astronvim.utils").toggle_term_cmd "python" end, desc = "python" },
-    ["<leader>tf"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Term float" },
+    ["<leader>tt"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Term float" },
     ["<leader>th"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Term horizontal split" },
     ["<leader>tv"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Term vertical split" },
     ["<F7>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
     --
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
-    ["<leader>bD"] = {
+    ["<C-w>"] = {
       function()
         require("astronvim.utils.status").heirline.buffer_picker(
           function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
@@ -79,6 +84,7 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["<C-o>"] = { function() require("telescope.builtin").find_files() end, desc = "Find files" }
   },
   t = {
     -- setting a mapping to false will disable it

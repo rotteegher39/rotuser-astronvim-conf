@@ -30,23 +30,17 @@ return {
     formatting = {
       format_on_save = {
         enabled = true, -- enable format on save
-        ignore_filetypes = { -- disable format on save for specified filetypes
-          "lua",
-          "markdown",
-          "python",
-        }
       },
     },
   },
   plugins = {
-    "simrat39/rust-tools.nvim", -- add lsp plugin
-    {
-      "williamboman/mason-lspconfig.nvim",
-      opts = {
-        ensure_installed = { "rust_analyzer" },
-      },
-    },
-    {"DingDean/wgsl.vim"},
+    -- {
+    --   "williamboman/mason-lspconfig.nvim",
+    --   opts = {
+    --     ensure_installed = { "rust_analyzer" },
+    --   },
+    -- },
+    -- {"DingDean/wgsl.vim"},
   },
   -- Configure require("lazy").setup() options
   lazy = {
